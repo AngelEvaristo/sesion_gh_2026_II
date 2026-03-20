@@ -9,7 +9,7 @@ on:
 
 jobs:
   call-template:
-    uses: AngelEvaristo/sesion_gh_template_2026II/.github/workflows/template_build_angular.yml
+    uses: AngelEvaristo/sesion_gh_template_2026II/.github/workflows/template_build_angular.yml@main
     with:
       node-version: "20"
       source-path: "dist/my-first-angular-app/browser"
