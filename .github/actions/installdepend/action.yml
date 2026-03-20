@@ -4,6 +4,7 @@ runs:
   using: "composite"
   steps:
     - name: Install dependencias
+      shell: pwsh
       run: |
           npm install -g @angular/cli
           npm install
