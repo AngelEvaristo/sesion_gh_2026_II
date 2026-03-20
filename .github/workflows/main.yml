@@ -8,35 +8,40 @@ on:
       - main
 
 jobs:
-  compilacion:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
+  call-template:
+    uses: AngelEvaristo/sesion_gh_template_2026II/.github/workflows/template_build_angular.yml
+    with:
+      node-version: "20"
+      source-path: "dist/my-first-angular-app/browser"
+  # compilacion:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v4
 
-      - name: Set version node
-        uses: actions/setup-node@v4
-        with:
-          node-version: "20"
-      # - name: Instalar dependencias
-      #   run: |
-      #     npm install -g @angular/cli
-      #     npm install
-      - name: Instalar dependencias
-        uses: ./.github/actions/installdepend
+  #     - name: Set version node
+  #       uses: actions/setup-node@v4
+  #       with:
+  #         node-version: "20"
+  #     # - name: Instalar dependencias
+  #     #   run: |
+  #     #     npm install -g @angular/cli
+  #     #     npm install
+  #     - name: Instalar dependencias
+  #       uses: ./.github/actions/installdepend
 
-      - name: compilacion
-        run: ng build --configuration production  
+  #     - name: compilacion
+  #       run: ng build --configuration production  
 
-      - name: Crear zip de proyecto 
-        uses: ./.github/actions/createzip
-        with:
-          source: dist/my-first-angular-app/browser
-          output: app.zip
+  #     - name: Crear zip de proyecto 
+  #       uses: ./.github/actions/createzip
+  #       with:
+  #         source: dist/my-first-angular-app/browser
+  #         output: app.zip
 
-  deploy:
-    runs-on: ubuntu-latest
-    needs: compilacion
-    environment: DEV
-    steps:
-      - name: Prueba echo
-        run: echo "Deploy"      
+  # deploy:
+  #   runs-on: ubuntu-latest
+  #   needs: compilacion
+  #   environment: DEV
+  #   steps:
+  #     - name: Prueba echo
+  #       run: echo "Deploy"      
