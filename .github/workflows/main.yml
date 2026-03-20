@@ -18,10 +18,13 @@ jobs:
         with:
           node-version: "20"
 
+      # - name: Instalar dependencias
+      #   run: |
+      #     npm install -g @angular/cli
+      #     npm install
+
       - name: Instalar dependencias
-        run: |
-          npm install -g @angular/cli
-          npm install
+        uses: ./.github/actions/installdepend
 
       - name: compilacion
         run: ng build --configuration production  

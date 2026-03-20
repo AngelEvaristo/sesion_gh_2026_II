@@ -1,0 +1,9 @@
+name: "Install dependencias"
+description: "Comprimir archivos"
+runs:
+  using: "composite"
+  steps:
+    - name: Install dependencias
+      run: |
+          npm install -g @angular/cli
+          npm install
