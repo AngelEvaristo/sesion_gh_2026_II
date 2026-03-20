@@ -17,12 +17,10 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "20"
-
       # - name: Instalar dependencias
       #   run: |
       #     npm install -g @angular/cli
       #     npm install
-
       - name: Instalar dependencias
         uses: ./.github/actions/installdepend
 
