@@ -24,4 +24,4 @@ jobs:
           npm install
 
       - name: compaliacion
-        run: ng buid --configuration production      
+        run: ng build --configuration production      
