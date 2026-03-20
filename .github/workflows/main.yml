@@ -1,0 +1,27 @@
+name: WorkflowAngular
+
+run-name: "CI/CD-Angular"
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  compaliacion:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set version node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Instalar dependencias
+        run: |
+          npm install -g @angular/cli
+          npm install
+
+      - name: compaliacion
+        run: ng buid --configuration production      
