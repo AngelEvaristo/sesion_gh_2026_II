@@ -8,7 +8,7 @@ on:
       - main
 
 jobs:
-  compaliacion:
+  compilacion:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -23,5 +23,13 @@ jobs:
           npm install -g @angular/cli
           npm install
 
-      - name: compaliacion
-        run: ng build --configuration production      
+      - name: compilacion
+        run: ng build --configuration production   
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: compilacion
+    environment: DEV
+    steps:
+      - name: Prueba echo
+        run: echo "Deploy"      
