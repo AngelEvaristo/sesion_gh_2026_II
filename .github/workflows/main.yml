@@ -1,12 +1,10 @@
 name: WorkflowAngular
 
 run-name: "CI/CD-Angular"
-
 on:
   push:
     branches:
       - main
-
 jobs:
   call-template:
     uses: AngelEvaristo/sesion_gh_template_2026II/.github/workflows/template_build_angular.yml@main
