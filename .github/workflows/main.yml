@@ -5,6 +5,13 @@ on:
   push:
     branches:
       - main
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }} 
+
 jobs:
   call-template:
     uses: AngelEvaristo/sesion_gh_template_2026II/.github/workflows/template_build_angular.yml@main
