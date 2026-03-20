@@ -24,7 +24,13 @@ jobs:
           npm install
 
       - name: compilacion
-        run: ng build --configuration production   
+        run: ng build --configuration production  
+
+      - name: Crear zip de proyecto 
+        uses: ./.github/actions/createzip
+        with:
+          source: dist/my-first-angular-app/browser
+          output: app.zip
 
   deploy:
     runs-on: ubuntu-latest
